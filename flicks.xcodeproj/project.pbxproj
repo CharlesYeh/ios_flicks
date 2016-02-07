@@ -11,13 +11,19 @@
 		723B082A1C6469AB00206BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B08291C6469AB00206BBA /* AppDelegate.swift */; };
 		723B082C1C6469AB00206BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B082B1C6469AB00206BBA /* ViewController.swift */; };
 		723B082F1C6469AB00206BBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723B082D1C6469AB00206BBA /* Main.storyboard */; };
-		723B08311C6469AB00206BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723B08301C6469AB00206BBA /* Assets.xcassets */; };
 		723B08341C6469AB00206BBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723B08321C6469AB00206BBA /* LaunchScreen.storyboard */; };
 		723B083F1C6469AB00206BBA /* flicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B083E1C6469AB00206BBA /* flicksTests.swift */; };
 		723B084A1C6469AB00206BBA /* flicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B08491C6469AB00206BBA /* flicksUITests.swift */; };
 		725339501C64785500E65155 /* FlickTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253394F1C64785500E65155 /* FlickTableViewCell.swift */; };
 		725339521C64787E00E65155 /* FlickTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725339511C64787E00E65155 /* FlickTableView.swift */; };
 		725339541C64B4BE00E65155 /* FlickDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725339531C64B4BE00E65155 /* FlickDetailsViewController.swift */; };
+		728E3E321C673F1B008CBCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E311C673F1B008CBCE4 /* Assets.xcassets */; };
+		728E3E3E1C67419A008CBCE4 /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E351C67419A008CBCE4 /* AFNetworking */; };
+		728E3E3F1C67419A008CBCE4 /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E361C67419A008CBCE4 /* Headers */; };
+		728E3E401C67419A008CBCE4 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E371C67419A008CBCE4 /* Local Podspecs */; };
+		728E3E411C67419A008CBCE4 /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E381C67419A008CBCE4 /* Manifest.lock */; };
+		728E3E421C67419A008CBCE4 /* MBProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E391C67419A008CBCE4 /* MBProgressHUD */; };
+		728E3E431C67419A008CBCE4 /* Target Support Files in Resources */ = {isa = PBXBuildFile; fileRef = 728E3E3D1C67419A008CBCE4 /* Target Support Files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,27 @@
 			remoteGlobalIDString = 723B08251C6469AB00206BBA;
 			remoteInfo = flicks;
 		};
+		728E3E471C67419A008CBCE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 28C1C5CDAEB7115BFF4A12695AD217CC;
+			remoteInfo = AFNetworking;
+		};
+		728E3E491C67419A008CBCE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BD420866F3413A48420CCD0E9CF2A82;
+			remoteInfo = MBProgressHUD;
+		};
+		728E3E4B1C67419A008CBCE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BBFDFDAB4F806532216B4DFB16C978D;
+			remoteInfo = "Pods-flicks";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +70,6 @@
 		723B08291C6469AB00206BBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723B082B1C6469AB00206BBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		723B082E1C6469AB00206BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		723B08301C6469AB00206BBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		723B08331C6469AB00206BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		723B08351C6469AB00206BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		723B083A1C6469AB00206BBA /* flicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +81,15 @@
 		7253394F1C64785500E65155 /* FlickTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickTableViewCell.swift; sourceTree = "<group>"; };
 		725339511C64787E00E65155 /* FlickTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickTableView.swift; sourceTree = "<group>"; };
 		725339531C64B4BE00E65155 /* FlickDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickDetailsViewController.swift; sourceTree = "<group>"; };
+		728E3E311C673F1B008CBCE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		728E3E351C67419A008CBCE4 /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AFNetworking; path = Pods/AFNetworking; sourceTree = "<group>"; };
+		728E3E361C67419A008CBCE4 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Headers; path = Pods/Headers; sourceTree = "<group>"; };
+		728E3E371C67419A008CBCE4 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
+		728E3E381C67419A008CBCE4 /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Manifest.lock; path = Pods/Manifest.lock; sourceTree = "<group>"; };
+		728E3E391C67419A008CBCE4 /* MBProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MBProgressHUD; path = Pods/MBProgressHUD; sourceTree = "<group>"; };
+		728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		728E3E3D1C67419A008CBCE4 /* Target Support Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Target Support Files"; path = "Pods/Target Support Files"; sourceTree = "<group>"; };
+		72E5060C1C65CD2E006557EC /* Flicks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flicks-Bridging-Header.h"; sourceTree = "<group>"; };
 		B4D2F5302969245970D69317 /* Pods-flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flicks/Pods-flicks.debug.xcconfig"; sourceTree = "<group>"; };
 		FEA2667A4E8D4936F22AECF7 /* Pods-flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-flicks/Pods-flicks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +123,13 @@
 		113743FCF2167525B16442B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				728E3E351C67419A008CBCE4 /* AFNetworking */,
+				728E3E361C67419A008CBCE4 /* Headers */,
+				728E3E371C67419A008CBCE4 /* Local Podspecs */,
+				728E3E381C67419A008CBCE4 /* Manifest.lock */,
+				728E3E391C67419A008CBCE4 /* MBProgressHUD */,
+				728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */,
+				728E3E3D1C67419A008CBCE4 /* Target Support Files */,
 				B4D2F5302969245970D69317 /* Pods-flicks.debug.xcconfig */,
 				FEA2667A4E8D4936F22AECF7 /* Pods-flicks.release.xcconfig */,
 			);
@@ -119,13 +161,14 @@
 		723B08281C6469AB00206BBA /* flicks */ = {
 			isa = PBXGroup;
 			children = (
+				728E3E311C673F1B008CBCE4 /* Assets.xcassets */,
+				72E5060C1C65CD2E006557EC /* Flicks-Bridging-Header.h */,
 				725339511C64787E00E65155 /* FlickTableView.swift */,
 				7253394F1C64785500E65155 /* FlickTableViewCell.swift */,
 				723B08291C6469AB00206BBA /* AppDelegate.swift */,
 				723B082B1C6469AB00206BBA /* ViewController.swift */,
 				723B082D1C6469AB00206BBA /* Main.storyboard */,
 				725339531C64B4BE00E65155 /* FlickDetailsViewController.swift */,
-				723B08301C6469AB00206BBA /* Assets.xcassets */,
 				723B08321C6469AB00206BBA /* LaunchScreen.storyboard */,
 				723B08351C6469AB00206BBA /* Info.plist */,
 			);
@@ -148,6 +191,16 @@
 				723B084B1C6469AB00206BBA /* Info.plist */,
 			);
 			path = flicksUITests;
+			sourceTree = "<group>";
+		};
+		728E3E3B1C67419A008CBCE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				728E3E481C67419A008CBCE4 /* AFNetworking.framework */,
+				728E3E4A1C67419A008CBCE4 /* MBProgressHUD.framework */,
+				728E3E4C1C67419A008CBCE4 /* Pods_flicks.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E996566E695B416866889566 /* Frameworks */ = {
@@ -251,6 +304,12 @@
 			mainGroup = 723B081D1C6469AB00206BBA;
 			productRefGroup = 723B08271C6469AB00206BBA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 728E3E3B1C67419A008CBCE4 /* Products */;
+					ProjectRef = 728E3E3A1C67419A008CBCE4 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				723B08251C6469AB00206BBA /* flicks */,
@@ -260,14 +319,44 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		728E3E481C67419A008CBCE4 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 728E3E471C67419A008CBCE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		728E3E4A1C67419A008CBCE4 /* MBProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MBProgressHUD.framework;
+			remoteRef = 728E3E491C67419A008CBCE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		728E3E4C1C67419A008CBCE4 /* Pods_flicks.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_flicks.framework;
+			remoteRef = 728E3E4B1C67419A008CBCE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		723B08241C6469AB00206BBA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				723B08341C6469AB00206BBA /* LaunchScreen.storyboard in Resources */,
-				723B08311C6469AB00206BBA /* Assets.xcassets in Resources */,
+				728E3E321C673F1B008CBCE4 /* Assets.xcassets in Resources */,
+				728E3E431C67419A008CBCE4 /* Target Support Files in Resources */,
+				728E3E421C67419A008CBCE4 /* MBProgressHUD in Resources */,
+				728E3E411C67419A008CBCE4 /* Manifest.lock in Resources */,
+				728E3E3F1C67419A008CBCE4 /* Headers in Resources */,
+				728E3E3E1C67419A008CBCE4 /* AFNetworking in Resources */,
 				723B082F1C6469AB00206BBA /* Main.storyboard in Resources */,
+				728E3E401C67419A008CBCE4 /* Local Podspecs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +580,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = na.flicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "flicks/Flicks-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -503,6 +593,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = na.flicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "flicks/Flicks-Bridging-Header.h";
 			};
 			name = Release;
 		};

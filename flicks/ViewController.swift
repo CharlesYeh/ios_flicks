@@ -7,24 +7,37 @@
 //
 
 import AFNetworking
+import MBProgressHUD
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var networkErrorView: UIView!
     @IBOutlet weak var flickTableView: FlickTableView!
     var data: NSArray = []
+    var type: String? = "now_playing"
     
-    static let IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w342/"
+    static let IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w342"
+    static let IMAGE_BASE_URL_LD = "https://image.tmdb.org/t/p/w45"
+    static let IMAGE_BASE_URL_DD = "https://image.tmdb.org/t/p/original"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.flickTableView.insertSubview(refreshControl, atIndex: 0)
+        
+        self.networkErrorView.hidden = true
+        
         self.flickTableView.dataSource = self;
         self.flickTableView.delegate = self;
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        loadFlickData()
+    }
+    
+    func loadFlickData(refreshControl: UIRefreshControl? = nil) {
         let api_key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "http://api.themoviedb.org/3/movie/now_playing?api_key=\(api_key)")
+        let url = NSURL(string: "http://api.themoviedb.org/3/movie/\(self.type!)?api_key=\(api_key)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -32,26 +45,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             delegateQueue:NSOperationQueue.mainQueue()
         )
         
+        MBProgressHUD.showHUDAddedTo(self.flickTableView, animated: true)
+        
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
             completionHandler: { (dataOrNil, response, error) in
+                
+                MBProgressHUD.hideHUDForView(self.flickTableView, animated: true)
+                
+                if error != nil {
+                    self.networkErrorView.hidden = false
+                }
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                        
                             if let innerData = responseDictionary["results"] as! NSArray? {
                                 self.data = innerData
                                 self.flickTableView.reloadData()
+                                
+                                if let control = refreshControl {
+                                    control.endRefreshing()
+                                }
                             }
                     }
                 }
         });
         task.resume()
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        loadFlickData(refreshControl)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,6 +111,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let flickData = self.data[indexPath!.row] as? NSDictionary {
             vc.flickData = flickData
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 

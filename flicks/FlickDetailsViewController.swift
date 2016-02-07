@@ -23,29 +23,27 @@ class FlickDetailsViewController: UIViewController {
     var flickData: NSDictionary?
     
     override func viewDidLoad() {
-        // set scroll
-        let contentWidth = flickDetailsScroll.bounds.width
-        let contentHeight = flickDetailsScroll.bounds.height * 2
-        flickDetailsScroll.contentSize = CGSizeMake(contentWidth, contentHeight)
-        
         if let title = self.flickData!["title"] as? String {
             titleLabel.text = title
         }
         if let releaseDate = self.flickData!["release_date"] as? String {
             dateLabel.text = releaseDate
         }
-        if let voteAverage = self.flickData!["vote_average"] as? String {
-            ratingLabel.text = voteAverage
+        NSLog("\(self.flickData)")
+        if let voteAverage = self.flickData!["vote_average"] as? Double {
+            ratingLabel.text = "Rating: \(voteAverage)"
         }
-        if let voteCount = self.flickData!["vote_count"] as? String {
-            lengthLabel.text = voteCount
-        }
-        if let backdropPath = self.flickData!["backdrop_path"] as? String {
-            flickBackdrop.setImageWithURL(NSURL(string: "\(ViewController.IMAGE_BASE_URL)\(backdropPath)")!)
+        if let posterPath = self.flickData!["poster_path"] as? String {
+            flickBackdrop.setImageWithURL(NSURL(string: "\(ViewController.IMAGE_BASE_URL)\(posterPath)")!)
         }
         if let overview = self.flickData!["overview"] as? String {
             overviewLabel.text = overview
             overviewLabel.sizeToFit()
+            flickDetailsView.frame.size.height = overviewLabel.frame.origin.y + overviewLabel.frame.size.height + 10
         }
+        
+        flickDetailsScroll.contentSize = CGSize(
+            width: flickDetailsScroll.frame.size.width,
+            height: flickDetailsView.frame.origin.y + flickDetailsView.frame.size.height)
     }
 }
