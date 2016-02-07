@@ -84,7 +84,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.layoutMargins = UIEdgeInsetsZero
         
         if let dataRow = self.data[indexPath.row] as? NSDictionary {
-            NSLog("\(dataRow)")
             if let posterPath = dataRow["poster_path"] as? String {
                 cell.flickIcon.setImageWithURL(
                     NSURL(string: "\(ViewController.IMAGE_BASE_URL)\(posterPath)")!)

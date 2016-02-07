@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MoviesNavigationController" id="BYZ-38-t0r" customClass="ViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="flicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="351"/>
+            <point key="canvasLocation" x="604" y="351"/>
         </scene>
         <!--Flick Details View Controller-->
         <scene sceneID="JJr-JL-PEe">
@@ -160,7 +160,7 @@
         <!--Navigation Controller-->
         <scene sceneID="JiS-2N-1fS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gBm-km-R4a" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MoviesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gBm-km-R4a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mcR-7h-3gc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

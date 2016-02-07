@@ -15,29 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        /*
+        
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let nowPlayingVC = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! ViewController
+        let nowPlayingNavController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
+        let nowPlayingVC = nowPlayingNavController.topViewController as! ViewController
         nowPlayingVC.type = "now_playing"
-        nowPlayingVC.tabBarItem.title = "Now Playing"
-        nowPlayingVC.tabBarItem.image = UIImage(named: "heart")
+        nowPlayingNavController.tabBarItem.title = "Now Playing"
+        nowPlayingNavController.tabBarItem.image = UIImage(named: "small_film")
         
-        let topRatedVC = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! ViewController
+        let topRatedNavController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
+        let topRatedVC = topRatedNavController.topViewController as! ViewController
         topRatedVC.type = "top_rated"
-        topRatedVC.tabBarItem.title = "Top Rated"
-        topRatedVC.tabBarItem.image = UIImage(named: "star")
+        topRatedNavController.tabBarItem.title = "Top Rated"
+        topRatedNavController.tabBarItem.image = UIImage(named: "small_star")
         
         // Set up the Tab Bar Controller to have two tabs
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [nowPlayingVC, topRatedVC]
+        tabBarController.viewControllers = [nowPlayingNavController, topRatedNavController]
         
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        */
+        
         return true
     }
 

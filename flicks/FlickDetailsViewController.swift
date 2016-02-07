@@ -29,7 +29,6 @@ class FlickDetailsViewController: UIViewController {
         if let releaseDate = self.flickData!["release_date"] as? String {
             dateLabel.text = releaseDate
         }
-        NSLog("\(self.flickData)")
         if let voteAverage = self.flickData!["vote_average"] as? Double {
             ratingLabel.text = "Rating: \(voteAverage)"
         }
