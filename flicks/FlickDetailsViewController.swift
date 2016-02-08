@@ -38,7 +38,7 @@ class FlickDetailsViewController: UIViewController {
                 placeholderImage: nil,
                 success: { (request, response, image) -> Void in
                     // load in higher quality image, must set image in main thread
-                    dispatch_async(dispatch_get_main_queue(),{
+                    dispatch_async(dispatch_get_main_queue(), {
                         self.flickBackdrop.setImageWithURL(
                             NSURL(string: "\(ViewController.IMAGE_BASE_URL_DD)\(posterPath)")!,
                             placeholderImage: image)

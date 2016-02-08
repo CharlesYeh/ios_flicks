@@ -18,7 +18,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var flickTableView: FlickTableView!
     @IBOutlet weak var gridView: UICollectionView!
     
-    
     @IBOutlet weak var listSearch: UISearchBar!
     
     var data: NSArray = []
@@ -52,9 +51,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             forControlEvents: UIControlEvents.ValueChanged)
         
         loadFlickData()
+        
+        let tapper = UITapGestureRecognizer(target: self, action:Selector("dismissKeyboardOnTap"))
+        tapper.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapper);
+    }
+    
+    func dismissKeyboardOnTap() {
+        dispatch_async(dispatch_get_main_queue(),{
+            self.listSearch.endEditing(true)
+        })
     }
     
     func changeView(segmentedControl: UISegmentedControl) {
+        self.listSearch.endEditing(true)
         if segmentedControl.selectedSegmentIndex == 0 {
             // list
             self.flickTableView.hidden = false
@@ -202,7 +212,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             indexPath = self.gridView.indexPathForCell(sender as! UICollectionViewCell)
         }
         
-        if let flickData = self.data[indexPath!.row] as? NSDictionary {
+        if let flickData = self.filteredData[indexPath!.row] as? NSDictionary {
             vc.flickData = flickData
         }
     }
