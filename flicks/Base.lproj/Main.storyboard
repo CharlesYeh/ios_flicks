@@ -17,9 +17,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="2ZZ-sN-wAj">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="com.teamslice.FlickCell" rowHeight="100" id="ka9-Mo-Bbu" customClass="FlickTableViewCell" customModule="flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="136" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ka9-Mo-Bbu" id="eHK-jF-aT1">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="99.5"/>
@@ -37,7 +42,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uwE-Nx-Dz3">
-                                                    <rect key="frame" x="78" y="38" width="205" height="54"/>
+                                                    <rect key="frame" x="81" y="37" width="205" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,13 +78,76 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BmK-qk-vaG">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ga3-Dd-gkK">
+                                    <size key="itemSize" width="151.5" height="127"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="com.teamslice.FlickGridCell" id="sHd-fq-49f" customClass="CollectionViewCell" customModule="flicks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="151.5" height="127"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="151.5" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hEd-r2-wQm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pa0-Tv-Evv">
+                                                    <rect key="frame" x="8" y="67" width="135.5" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cP1-jb-mu4">
+                                                    <rect key="frame" x="59" y="8" width="84.5" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.96611174738219896" green="0.96611174738219896" blue="0.96611174738219896" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="151.5" height="127"/>
+                                        <connections>
+                                            <outlet property="movieDesc" destination="pa0-Tv-Evv" id="fls-ht-1O3"/>
+                                            <outlet property="movieIcon" destination="hEd-r2-wQm" id="ERc-S4-JCG"/>
+                                            <outlet property="movieName" destination="cP1-jb-mu4" id="G1Z-0F-NCQ"/>
+                                            <segue destination="t9E-OX-vk6" kind="push" id="5yU-hJ-kAJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Rgv-5z-llX"/>
+                    <navigationItem key="navigationItem" id="Rgv-5z-llX">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="u7u-Gm-Jxv">
+                            <rect key="frame" x="100" y="7.5" width="120" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="List"/>
+                                <segment title="Grid"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="flickTableView" destination="JzC-Ub-1uw" id="2kb-Pw-GaX"/>
+                        <outlet property="gridView" destination="BmK-qk-vaG" id="fHl-k2-30R"/>
+                        <outlet property="listSearch" destination="2ZZ-sN-wAj" id="5mD-OP-xG2"/>
                         <outlet property="networkErrorView" destination="lgd-D4-BcX" id="iB3-wv-YFT"/>
+                        <outlet property="viewOption" destination="u7u-Gm-Jxv" id="M7g-p3-Rzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -179,4 +247,7 @@
     <resources>
         <image name="Image" width="120" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jrk-F0-FYO"/>
+    </inferredMetricsTieBreakers>
 </document>

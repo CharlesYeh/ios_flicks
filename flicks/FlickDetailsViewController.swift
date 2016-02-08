@@ -33,7 +33,17 @@ class FlickDetailsViewController: UIViewController {
             ratingLabel.text = "Rating: \(voteAverage)"
         }
         if let posterPath = self.flickData!["poster_path"] as? String {
-            flickBackdrop.setImageWithURL(NSURL(string: "\(ViewController.IMAGE_BASE_URL)\(posterPath)")!)
+            self.flickBackdrop.setImageWithURLRequest(NSURLRequest(
+                URL: NSURL(string: "\(ViewController.IMAGE_BASE_URL_LD)\(posterPath)")!),
+                placeholderImage: nil,
+                success: { (request, response, image) -> Void in
+                    // load in higher quality image, must set image in main thread
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.flickBackdrop.setImageWithURL(
+                            NSURL(string: "\(ViewController.IMAGE_BASE_URL_DD)\(posterPath)")!,
+                            placeholderImage: image)
+                    })
+                }, failure: { (request, response, error) -> Void in })
         }
         if let overview = self.flickData!["overview"] as? String {
             overviewLabel.text = overview

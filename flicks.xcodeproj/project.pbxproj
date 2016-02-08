@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25D062B92283B4712D38348D /* Pods_flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461406C05735A51E68391CBE /* Pods_flicks.framework */; };
+		72388B301C6791970003793F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72388B2F1C6791970003793F /* CollectionViewCell.swift */; };
 		723B082A1C6469AB00206BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B08291C6469AB00206BBA /* AppDelegate.swift */; };
 		723B082C1C6469AB00206BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723B082B1C6469AB00206BBA /* ViewController.swift */; };
 		723B082F1C6469AB00206BBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723B082D1C6469AB00206BBA /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		461406C05735A51E68391CBE /* Pods_flicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72388B2F1C6791970003793F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		723B08261C6469AB00206BBA /* flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723B08291C6469AB00206BBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723B082B1C6469AB00206BBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		723B08281C6469AB00206BBA /* flicks */ = {
 			isa = PBXGroup;
 			children = (
+				72388B2F1C6791970003793F /* CollectionViewCell.swift */,
 				728E3E311C673F1B008CBCE4 /* Assets.xcassets */,
 				72E5060C1C65CD2E006557EC /* Flicks-Bridging-Header.h */,
 				725339511C64787E00E65155 /* FlickTableView.swift */,
@@ -431,6 +434,7 @@
 			files = (
 				723B082C1C6469AB00206BBA /* ViewController.swift in Sources */,
 				723B082A1C6469AB00206BBA /* AppDelegate.swift in Sources */,
+				72388B301C6791970003793F /* CollectionViewCell.swift in Sources */,
 				725339541C64B4BE00E65155 /* FlickDetailsViewController.swift in Sources */,
 				725339501C64785500E65155 /* FlickTableViewCell.swift in Sources */,
 				725339521C64787E00E65155 /* FlickTableView.swift in Sources */,

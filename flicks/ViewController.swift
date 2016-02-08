@@ -10,12 +10,22 @@ import AFNetworking
 import MBProgressHUD
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
+    @IBOutlet weak var viewOption: UISegmentedControl!
+    
     @IBOutlet weak var networkErrorView: UIView!
     @IBOutlet weak var flickTableView: FlickTableView!
+    @IBOutlet weak var gridView: UICollectionView!
+    
+    
+    @IBOutlet weak var listSearch: UISearchBar!
+    
     var data: NSArray = []
-    var type: String? = "now_playing"
+    var filteredData: NSArray = []
+    var searchText: String? = ""
+    
+    var endpoint: String? = "now_playing"
     
     static let IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w342"
     static let IMAGE_BASE_URL_LD = "https://image.tmdb.org/t/p/w45"
@@ -30,14 +40,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.networkErrorView.hidden = true
         
-        self.flickTableView.dataSource = self;
-        self.flickTableView.delegate = self;
+        self.flickTableView.dataSource = self
+        self.flickTableView.delegate = self
+        
+        self.gridView.dataSource = self
+        self.gridView.delegate = self
+        self.gridView.hidden = true
+        
+        listSearch.delegate = self;
+        viewOption.addTarget(self, action: "changeView:",
+            forControlEvents: UIControlEvents.ValueChanged)
+        
         loadFlickData()
+    }
+    
+    func changeView(segmentedControl: UISegmentedControl) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            // list
+            self.flickTableView.hidden = false
+            self.gridView.hidden = true
+        } else {
+            // grid
+            self.flickTableView.hidden = true
+            self.gridView.hidden = false
+        }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        refreshListing()
     }
     
     func loadFlickData(refreshControl: UIRefreshControl? = nil) {
         let api_key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "http://api.themoviedb.org/3/movie/\(self.type!)?api_key=\(api_key)")
+        let url = NSURL(string: "http://api.themoviedb.org/3/movie/\(self.endpoint!)?api_key=\(api_key)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -60,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         data, options:[]) as? NSDictionary {
                             if let innerData = responseDictionary["results"] as! NSArray? {
                                 self.data = innerData
-                                self.flickTableView.reloadData()
+                                self.refreshListing()
                                 
                                 if let control = refreshControl {
                                     control.endRefreshing()
@@ -70,6 +106,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
         });
         task.resume()
+    }
+    
+    func refreshListing() {
+        if self.searchText != "" {
+            filteredData = data.filter({ (row) in
+                if let title = row["title"] as? String {
+                    return title.uppercaseString.containsString(self.searchText!.uppercaseString)
+                } else {
+                    return false
+                }
+            })
+        } else {
+            filteredData = data
+        }
+        
+        self.flickTableView.reloadData()
+        self.gridView.reloadData()
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
@@ -83,10 +136,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.separatorInset = UIEdgeInsetsZero
         cell.layoutMargins = UIEdgeInsetsZero
         
-        if let dataRow = self.data[indexPath.row] as? NSDictionary {
+        if let dataRow = self.filteredData[indexPath.row] as? NSDictionary {
             if let posterPath = dataRow["poster_path"] as? String {
-                cell.flickIcon.setImageWithURL(
-                    NSURL(string: "\(ViewController.IMAGE_BASE_URL)\(posterPath)")!)
+                cell.flickIcon.setImageWithURLRequest(
+                    NSURLRequest(URL: NSURL(
+                        string: "\(ViewController.IMAGE_BASE_URL_LD)\(posterPath)")!),
+                    placeholderImage: nil,
+                    success: { (request, response, image) -> Void in
+                        if response != nil {
+                            cell.flickIcon.alpha = 0.0
+                            cell.flickIcon.image = image
+                            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                cell.flickIcon.alpha = 1.0
+                            })
+                        } else {
+                            cell.flickIcon.image = image
+                        }
+                    }, failure: nil)
             }
             if let title = dataRow["title"] as? String {
                 cell.flickNameLabel.text = title
@@ -100,12 +166,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return self.filteredData.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = gridView.dequeueReusableCellWithReuseIdentifier(
+            "com.teamslice.FlickGridCell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        if let dataRow = self.filteredData[indexPath.row] as? NSDictionary {
+            if let posterPath = dataRow["poster_path"] as? String {
+                cell.movieIcon.setImageWithURL(
+                    NSURL(string: "\(ViewController.IMAGE_BASE_URL_LD)\(posterPath)")!)
+            }
+            if let title = dataRow["title"] as? String {
+                cell.movieName.text = title
+            }
+            if let overview = dataRow["overview"] as? String {
+                cell.movieDesc.text = overview
+            }
+        }
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.filteredData.count
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! FlickDetailsViewController
-        let indexPath = self.flickTableView.indexPathForCell(sender as! UITableViewCell)
+        var indexPath: NSIndexPath?
+        if viewOption.selectedSegmentIndex == 0 {
+            indexPath = self.flickTableView.indexPathForCell(sender as! UITableViewCell)
+        } else {
+            indexPath = self.gridView.indexPathForCell(sender as! UICollectionViewCell)
+        }
         
         if let flickData = self.data[indexPath!.row] as? NSDictionary {
             vc.flickData = flickData
